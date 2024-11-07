@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum</title>
+
+    <link rel="icon" href="Bilder/icon.png" type="image/png">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+        <img class="icon" src="Bilder/icon.png"><h1>Pomodro Copyshop</h1>
+        
+            
+            <div class="nav-links">
+                <a href="index.html">Startseite</a>
+                <a href="preise.html">Preise</a>
+                <a href="produkte.html">Produkte</a>
+                <a href="contact.html">Kontakt</a>    
+            </div>
+
+            <div class="icon-links">
+                <a href="konto.html" class="icon-link">
+                    <img src="Bilder/konto.png" alt="Mein Konto">
+                </a>
+                <a href="warenkorb.html" class="icon-link">
+                    <img src="Bilder/shop.png" alt="Warenkorb">
+                </a>
+            </div>
+    </div>
+   
+    <div class="footer">
+            
+        <p class="footer">© <span id="year"></span> Pomodro Copyshop. Alle Rechte vorbehalten. <button class="impressum" onclick="window.location.href='impressum.html';">Impressum</button></p>
+        
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+    
+    </div>
+
+</body>
+</html>

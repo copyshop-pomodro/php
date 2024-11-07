@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte</title>
+
+    <link rel="icon" href="Bilder/icon.png" type="image/png">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header section -->
+    <div class="header">
+        <img class="icon" src="Bilder/icon.png"><h1>Pomodro Copyshop</h1>
+        <div class="nav-links">
+            <a href="index.html">Startseite</a>
+            <a href="preise.html">Preise</a>
+            <a href="produkte.html">Produkte</a>
+            <a href="contact.html">Kontakt</a>    
+        </div>
+        <div class="icon-links">
+            <a href="konto.html" class="icon-link">
+                <img src="Bilder/konto.png" alt="Mein Konto">
+            </a>
+            <a href="warenkorb.html" class="icon-link">
+                <img src="Bilder/shop.png" alt="Warenkorb">
+            </a>
+        </div>
+    </div>
+    
+    <!-- Main section for product options -->
+    <main>
+        <!-- Small Poster Options -->
+        <section class="product">
+            <h3>Kleine Poster</h3>
+            <h4>Preise: <strong>5,99 - 19,99 Euro</strong></h4>
+            <p>11" x 17" (Tabloid): Kleine Ankündigungen, Veranstaltungen, In-Store-Poster.</p>
+
+            <div class="container">
+                <h4>Wählen Sie eine Option:</h4>
+                <select onchange="updatePrice('small', this.value)">
+                    <option value="">Bitte wählen...</option>
+                    <option value="seidenmatt">Seidenmatt</option>
+                    <option value="hochglanz">Hochglanz</option>
+                    <option value="leinwand">Leinwand</option>
+                </select>
+                <strong><p id="smallPosterPrice"></p></strong>
+            </div>
+            <button>In den Warenkorb</button><br><br>
+        </section>
+
+        <!-- Medium Poster Options -->
+        <section class="product">
+            <h3>Mittlere Poster</h3>
+            <h4>Preise: <strong>20,00 - 34,99 Euro</strong></h4>
+            <p>18" x 24": Werbung, Konzerte, allgemeine Veranstaltungen.</p>
+
+            <div class="container">
+                <h4>Wählen Sie eine Option:</h4>
+                <select onchange="updatePrice('medium', this.value)">
+                    <option value="">Bitte wählen...</option>
+                    <option value="seidenmatt">Seidenmatt</option>
+                    <option value="hochglanz">Hochglanz</option>
+                    <option value="leinwand">Leinwand</option>
+                </select>
+                <strong><p id="mediumPosterPrice"></p></strong>
+            </div>
+            <button>In den Warenkorb</button><br><br>
+        </section>
+
+        <!-- Large Poster Options -->
+        <section class="product">
+            <h3>Große Poster</h3>
+            <h4>Preise: <strong>35,00 - 49,99 Euro</strong></h4>
+            <p>24" x 36": Filmplakate, große Werbeanzeigen mit detaillierten Visuals.</p>
+
+            <div class="container">
+                <h4>Wählen Sie eine Option:</h4>
+                <select onchange="updatePrice('large', this.value)">
+                    <option value="">Bitte wählen...</option>
+                    <option value="seidenmatt">Seidenmatt</option>
+                    <option value="hochglanz">Hochglanz</option>
+                    <option value="leinwand">Leinwand</option>
+                </select>
+                <strong><p id="largePosterPrice"></p></strong>
+            </div>
+            <button>In den Warenkorb</button><br><br>
+        </section>
+
+        <!-- Extra Large Poster Options -->
+        <section class="product">
+            <h3>Übergrößen-Poster</h3>
+            <h4>Preise: <strong>50,00 - 74,99 Euro</strong></h4>
+            <p>36" x 48": Messepräsentationen, Außenwerbung.</p>
+
+            <div class="container">
+                <h4>Wählen Sie eine Option:</h4>
+                <select onchange="updatePrice('extra_large', this.value)">
+                    <option value="">Bitte wählen...</option>
+                    <option value="seidenmatt">Seidenmatt</option>
+                    <option value="hochglanz">Hochglanz</option>
+                    <option value="leinwand">Leinwand</option>
+                </select>
+                <strong><p id="extra_largePosterPrice"></p></strong>
+            </div>
+            <button>In den Warenkorb</button><br><br>
+        </section>
+    </main>
+
+    <!-- AJAX Script for updating price -->
+    <script>
+        function updatePrice(posterSize, option) {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", `price.php?size=${posterSize}&option=${option}`, true);
+            xhr.onload = function () {
+                if (this.status === 200) {
+                    document.getElementById(`${posterSize}PosterPrice`).textContent = this.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p class="footer">© <span id="year"></span> Pomodro Copyshop. Alle Rechte vorbehalten.
+            <button class="impressum" onclick="window.location.href='impressum.html';">Impressum</button>
+        </p>
+        <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+    </div>
+
+</body>
+</html>
