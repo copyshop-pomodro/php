@@ -1,0 +1,132 @@
+Dokumentation: Pomodoro Copyshop Website
+Projektübersicht
+
+Die Website für den Pomodoro Copyshop ist eine Online-Plattform, die Kunden den Zugang zu Dienstleistungen und Informationen des Copyshops erleichtert. Die Website soll grundlegende Informationen zu Angeboten, Preisen und Öffnungszeiten bereitstellen und eine Möglichkeit zur Online-Bestellung oder Anfrage bieten.
+Zielgruppe
+
+Die Zielgruppe sind vor allem Studenten, Geschäftsleute und Personen, die regelmäßig Kopier-, Druck- und andere Copyshop-Dienstleistungen benötigen.
+Teammitglieder und Rollen
+
+    Max: Frontend-Entwicklung, Design und Layout
+    Arpad: Backend-Entwicklung und Datenbankverwaltung
+    Marianna: Qualitätssicherung und Testen
+    Marc: Projektmanagement und Koordination
+    Laura, Sharouz: Frontend-Entwicklung, Design und Responsivität
+    Marc: Backend-Entwicklung, Sicherheit und PHP-Integration
+
+<h1>Genutzte>Genutzte Technologien und Tools</h1>
+
+    MySQL: Datenbankmanagementsystem zur Speicherung und Verwaltung von Benutzerdaten, Bestellungen und              Produktinformationen.
+    XAMPP: Lokale Entwicklungsumgebung für den Webserver (Apache) und MySQL-Datenbank.
+    PHP: Serverseitige Skriptsprache zur Verbindung von Frontend und Backend sowie zur Verarbeitung von            Formularen und Benutzerdaten.
+    HTML: Grundlage für das Layout und die Struktur der Website.
+    Firefox: Webbrowser zur Testung und Vorschau der Website.
+    Visual Studio Codeium: Haupt-Entwicklungsumgebung (IDE) für die Erstellung und Verwaltung des Codes.
+    HedgeDoc: Online Tool zum koordinierten dokumentieren des Projektes.
+    GitHub: Website zum legen und abrufen von Data-Repositorys.
+
+<h1>Projektstruktur</h1>
+
+    Frontend
+        HTML: Struktur und Inhalt der Seiten (Startseite, Dienstleistungen, Preise, Kontakt, Bestellung & Warenkorb).
+        CSS: Gestaltung und Design der Seiten.
+        JavaScript (optional): Interaktive Elemente und Formularvalidierung.
+
+    Backend
+        PHP: Verarbeitung von Kundenanfragen, Formularen und Logik.
+        MySQL: Speicherung von Kunden-, Produkt- und Bestelldaten.
+
+    Datenbank
+        Erstellung einer MySQL-Datenbank namens pomodoro_copyshop.
+        Tabellen:
+            users: Speicherung von Kundeninformationen.
+            orders: Speicherung von Bestellungen und deren Status.
+            products: Auflistung der Dienstleistungen und Preise.
+
+    Testing und Qualitätssicherung
+        Regelmäßiges Testen der Website auf Benutzerfreundlichkeit, Ladezeiten und Fehler.
+        Cross-Browser-Tests mit Firefox und anderen Browsern, um eine optimale Darstellung zu gewährleisten.
+
+Arbeitsablauf und Aufgabenverteilung
+Montag,04.11.24  1: Planung und Struktur
+
+    Marc koordiniert das Team und erstellt den Projektplan.
+    Max entwerfen ein grobes Wireframe für die Website.
+    Arpad setzt die Datenbank in MySQL auf und erstellen die Grundstruktur, Marc schreibt das Script für       die PHP Einbindung.
+
+Tag 2: Frontend-Entwicklung
+
+    Max und Laura entwickeln das Layout der Startseite, der Dienstleistungen, Preise und Kontaktseite in HTML/CSS.
+    Max erstellt Inhalte für die Seiten und überprüft das Design auf Einhaltung der Projektziele. Mariana recherchiert für geeignete Preise und Medien.
+
+Tag 3: Backend-Integration
+
+    Marc und Arpad erstellen die PHP-Skripte für die Formularverarbeitung (Kontaktformular, Bestellformular) und die Verbindung zur MySQL-Datenbank.
+    Marianna testet die Formulare und überprüft die Datenübermittlung sowie -speicherung in der Datenbank.
+
+Tag 4: Datenbankanbindung und Tests
+
+    Arpad und Max verknüpfen die Frontend-Formulare mit der Datenbank und testen die Verarbeitung.
+    Marianna und Marc testen die gesamte Website auf Fehler, benutzerfreundliche Navigation und Browserkompatibilität (besonders mit Firefox).
+
+Tag 5: Code-Polishing und abschließende Features
+
+    Das Team arbeitet zusammen an dem Feinschliff des Seiten-Layouts, sowie einer Warenkorb und Registierungsimplementierung.
+    
+Tag 6: Abschluss und Feedback
+
+    Das Team bespricht offene Fragen, korrigiert Fehler und überprüft die Einhaltung der Sicherheitsstandards.
+    Endgültige Anpassungen und Korrekturen werden vorgenommen.
+
+    
+    
+<h3>Funktionen und Ablauf</h3>
+
+<h4>Startseite</h4>
+
+Zeigt grundlegende Informationen über den Pomodoro Copyshop an, einschließlich Öffnungszeiten, Angebote und Kontaktdaten.
+Dienstleistungen
+
+Liste der Dienstleistungen mit Preisen und kurzen Beschreibungen. Optional ein Link zur Bestellung oder zum Kontaktformular.
+Kontaktformular
+
+    Eingabefelder für Namen, E-Mail, Nachricht und weitere relevante Informationen.
+    Verarbeitung in PHP mit Validierung der Daten, Speicherung in der Datenbank und einer Benachrichtigung an das Team.
+
+Bestellformular
+
+    Für Produkte (z. B. Drucke, Bindungen) können Kunden direkt eine Bestellung abgeben.
+    Das Formular wird in die MySQL-Datenbank eingetragen und optional per E-Mail ans Team gesendet.
+
+MySQL-Datenbankstruktur
+
+    users
+        user_id (int, PK, auto_increment): Eindeutige ID des Nutzers.
+        name (varchar(100)): Name des Nutzers.
+        email (varchar(100)): E-Mail-Adresse des Nutzers.
+        phone (varchar(15)): Telefonnummer des Nutzers.
+
+    orders
+        order_id (int, PK, auto_increment): Eindeutige ID der Bestellung.
+        user_id (int, FK): Referenz zur users-Tabelle.
+        product_id (int, FK): Referenz zur products-Tabelle.
+        quantity (int): Anzahl der bestellten Produkte.
+        status (varchar(20)): Status der Bestellung (z. B. "in Bearbeitung", "abgeschlossen").
+
+    products
+        product_id (int, PK, auto_increment): Eindeutige ID des Produkts.
+        name (varchar(100)): Name des Produkts/Dienstleistung.
+        price (decimal(5,2)): Preis des Produkts.
+
+Sicherheitsaspekte
+
+    Eingabevalidierung: Alle Formulare sind gegen SQL-Injection und XSS-Angriffe abgesichert.
+    Passwortverschlüsselung: Sensible Daten wie Passwörter werden in der Datenbank verschlüsselt gespeichert.
+    Sichere Verbindung: Wenn die Website live geht, wird eine HTTPS-Verbindung für sichere Datenübertragung empfohlen.
+
+Testplan
+
+    Frontend: Überprüfung der Benutzeroberfläche auf allen Seiten und Browsern.
+    Backend: Prüfung der Datenübertragung, -verarbeitung und -speicherung.
+    Datenbank: Test der Datenkonsistenz und -integrität.
+    Abschluss-Test: End-to-End-Test aller Funktionen mit Fokus auf Benutzerfreundlichkeit und Sicherheit.
