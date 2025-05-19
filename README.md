@@ -5,4 +5,6 @@ Installationsanweisung:
 3.  erstelle einen "htdocs" Ordner falls noch nicht vorhanden.
 4.  Entpacke das gedownloadete Verzeichnis in "htdocs".
 5.  Zum einlesen und abändern des Codes öffne den gesamten Ordner in Visual Codium.
-6.  Zum ansehen der Website gib nun in deinen Browser ein: Localhost/htdocs/Ordnername 
+6.  Zum ansehen der Website gib nun in deinen Browser ein: Localhost/htdocs/Ordnername
+
+7.  https://maxheess.de/Projekt/HTML/index.php
